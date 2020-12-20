@@ -7,6 +7,7 @@
 #header_main{
     height: 90px;
     width: 100%;
+    display:flex;
 }
 
 #header_bottom_border{
@@ -20,10 +21,82 @@
     background-size: 100% 100%;
 }
 
+#header_left{
+    width:30%;
+    height: 100%;
+    /* background-color: red; */
+    display:flex;
+    align-items:center;
+}
+
+#header_left_logo{
+    margin-left: 10px;
+    height: 60px;
+    width: 60px;
+}
+
+.fill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fill img {
+    width: 50px;
+    height: 50px;
+}
+
+#header_left_search{
+    margin-left: 10px;
+    width: 250px;
+    height: 80px;
+}
+
+#header_search_bar{
+    width: 100%;
+    height: 60%;
+    padding-left: 15px;
+    border-radius: 15px;
+    border: 1px solid #c2c2c2;
+    font-size: 15px;
+}
+
+#header_search_bar:focus{
+    outline: none;
+    border-radius: 15px;
+    border: 1px solid #2d9fd9;
+}
+
+#header_mid{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.nav_item{
+    display: table-cell;
+    padding: 15px;
+    margin-right: 10px;
+    margin-left: 10px;
+    display:flex;
+}
+
+.nav_item:hover{
+    border-bottom: 3px solid cyan;
+}
+
+#header_right{
+    width:30%;
+    height: 100%;
+    background-color:purple;
+}
+
 #main{
     width: 100%;
-    min-height: 90%;
+    min-height: 85%;
     background-color: rgba(228, 228, 228, 0.774);
 }
+
+
 
 
