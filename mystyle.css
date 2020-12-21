@@ -2,6 +2,10 @@
     height: 100px;
     width: 100%;
     background-color: lightcyan;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 #header_main{
@@ -16,7 +20,8 @@
     background: linear-gradient(
         to bottom,
         lightcyan,
-        rgba(228, 228, 228, 0.774))
+        rgb(240, 240, 240)
+    )
         no-repeat;
     background-size: 100% 100%;
 }
@@ -40,6 +45,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .fill img {
     width: 50px;
     height: 50px;
@@ -76,8 +82,8 @@
 .nav_item{
     display: table-cell;
     padding: 15px;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
     display:flex;
 }
 
@@ -86,15 +92,80 @@
 }
 
 #header_right{
-    width:30%;
+    width: 30%;
     height: 100%;
-    background-color:purple;
+}
+
+#header_account_info_parent{
+    float: right;
+    width: 350px;
+    height: 100%;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fill_round {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(224, 224, 224);
+    border-radius: 50%;
+}
+
+.fill_round img {
+    padding: 10px;
+    width: 25px;
+    height: 25px;
+}
+
+#header_account_profile_picture{
+    margin-right: 10px;
+}
+
+#header_account_profile_picture img{
+    width: 45px;
+    height: 45px;
+    padding: 0px;
+}
+
+.account_info_parent{
+    padding: 7px;
 }
 
 #main{
     width: 100%;
     min-height: 85%;
-    background-color: rgba(228, 228, 228, 0.774);
+    margin-top: 100px;
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#left_panel{
+    width: 300px;
+    height: 100%;
+    background-color: red;
+    position: fixed;
+    left: 0;
+    top: 100px;
+}
+
+#right_panel{
+    width: 300px;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 100px;
+    background-color: blue
+}
+
+#main_body{
+    width: 550px;
+    height: 2000px;
+    background-color: purple;
 }
 
 
