@@ -1,0 +1,64 @@
+/* 
+font-family: 'Montserrat', sans-serif;
+font-family: 'Raleway', sans-serif; 
+*/
+
+/* google fonts */
+:root {
+    --heading:
+    'Montserrat', sans-serif;
+}
+
+body {
+    font-family: 
+    'Raleway', sans-serif;
+}
+
+/* global */
+img {
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+hr {
+    width: 95vw;
+    margin: 0 auto;
+}
+
+/* navigation */
+
+#top_head{
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
+    /* margin: 0 auto; */
+    background-color: dimgrey;
+    color: white;
+    /* padding: 20px 30px; */
+}
+
+#top_head .fas{
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#times_button{
+    display: none;
+}
+
+#navigation_bar{
+    background: gray;
+}
+
+.show_navigation{
+    height: auto;
+}
+
