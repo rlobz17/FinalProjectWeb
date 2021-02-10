@@ -4,6 +4,13 @@ font-family: 'Raleway', sans-serif;
 */
 
 /* google fonts */
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+
 :root {
     --heading:
     'Montserrat', sans-serif;
@@ -36,13 +43,13 @@ hr {
 /* navigation */
 
 #top_head{
-    /* display: flex;
+    display: flex;
     justify-content: space-between;
-    align-items: center; */
-    /* margin: 0 auto; */
-    background-color: dimgrey;
+    align-items: center;
+    margin: 0 auto;
+    background-color: rgb(24, 24, 24);
     color: white;
-    /* padding: 20px 30px; */
+    padding: 20px 30px;
 }
 
 #top_head .fas{
@@ -50,15 +57,107 @@ hr {
     cursor: pointer;
 }
 
-#times_button{
+#website_name{
+    padding-left: 20px;
+}
+
+.times_button{
     display: none;
 }
 
-#navigation_bar{
-    background: gray;
+.navigation_bar{
+    background: dimgrey;
+    height: 0;
+    overflow: hidden;
 }
 
 .show_navigation{
     height: auto;
 }
+
+#navigation_bar ul li{
+    text-align: center;
+    display: block;
+    padding: 15px 0;
+    transition: all 1s ease-in-out;
+}
+
+#navigation_bar ul li:hover{
+    background: rgb(40, 40, 40);
+}
+
+#navigation_bar ul li a{
+    color: white;
+    text-transform: uppercase;
+}
+
+#navigation_bar ul li a:hover{
+    text-decoration: underline;
+}
+
+#social_icons{
+    display: none;
+}
+
+
+@media(min-width: 900px){
+    .ham_button, .times_button{
+        display: none !important; 
+    }
+
+    #navigation_container{
+        display:flex;
+        background-color: rgb(24, 24, 24);
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    #top_head{
+        flex: 0 0 15%;
+    }
+
+    .navigation_bar{
+        flex: 1 0 auto;
+        height: 100%;
+        background: transparent;
+    }
+
+    .navigation_bar nav ul{
+        display: flex;
+        justify-content: center;
+    }
+
+    .navigation_bar nav ul li{
+        padding-right: 30px !important;
+    }
+
+    .navigation_bar nav ul li:hover{
+        background: none !important;
+    }
+
+    #social_icons{
+        flex: 0 1 30%;
+        display: block;
+        margin: 0 auto;
+    }
+
+    #social_icons .fab{
+        color: white;
+        font-size: 2rem;
+    }
+
+    #social_icons ul{
+        display: flex;
+        justify-content: center;
+        padding:0 20px;
+    }
+
+    #social_icons ul li{
+        padding: 20px;
+    }
+}
+
+
+
+
 
