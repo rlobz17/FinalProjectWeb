@@ -43,7 +43,16 @@ $.ajax(settings).done(function (response) {
 	var value = response.value;
 
     console.log(response)
-    
+
+    console.log($(window).width())
+
+    if($(window).width() > 700){
+        document.querySelector(".banner_sub_content").style.display="grid";
+    }else{
+        document.querySelector(".banner_sub_content").style.display="block";
+    }
+    document.querySelector(".loader_container").style.display="none";
+
     value.forEach(function (elem){
 
         var title = elem.title
@@ -67,6 +76,7 @@ $.ajax(settings).done(function (response) {
         var h2 = document.createElement('h2');
         var h3 = document.createElement('h3');
         var p = document.createElement('p');
+
         var readMoreButton = document.createElement('a');
     
         readMoreButton.setAttribute('href', url);
@@ -91,11 +101,12 @@ $.ajax(settings).done(function (response) {
         content.appendChild(h2);
         content.appendChild(h3);
         content.appendChild(p);
-        content.appendChild(readMoreButton);
-    
+        
         new_row.appendChild(content);
+        new_row.appendChild(readMoreButton);
         banner_sub.appendChild(new_row);
     })
 
 
 });
+

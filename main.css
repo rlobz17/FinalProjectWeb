@@ -220,51 +220,86 @@ hr {
     height: 100%;
     width: 100%;
     object-fit: cover;
-    border-radius: 10%;
+    border-radius: 20px;
 }
 
 .hot_topic_content{
     position: absolute;
-    bottom: 0;
-    left: 20px;
-    right: 20px;
-    padding: 10px 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    top: 0;
+    left: 12px;
+    right: 0px;
+    margin: 12px 12px 12px 0;
+    padding: 0 5px;
+    text-align: center;
     line-height: 1.3;
-    color: white;
+    color: rgb(219, 255, 166);
+    background: rgba(24,24,24,0.5);
+    /* overflow: hidden; */
 }
+
 
 .hot_topic h2{
     padding: 10px 0;
     font-size: 18px;
-    text-shadow: 0 0 2px black;
+    text-shadow: 0 0 5px black;
 }
 
 .hot_topic h3{
+    display:none;
     padding: 10px 0;
     font-size: 16px;
     text-shadow: 0 0 2px black;
 }
 
 .hot_topic p{
+    display: none;
     padding: 12px 10px;
     font-size: 15px;
     text-shadow: 0 0 2px black;
 }
 
-.hot_topic_content a{
-    display: block;
-    background: white;
+.hot_topic a{
+    position: absolute;
+    background: rgba(219, 255, 166, 0.8);
+    bottom: 10px;
+    right: 10px;
     border: none;
     width: 95px;
-    border-radius: 20%;
+    border-radius: 40%;
     text-align: center;
-    padding: 7px 10px;
+    padding: 10px 10px;
     font-size: 14px;
-    margin: 10px 0 10px 10px;
+    margin: 10px;
 }
 
-.hot_topic_content a:hover{
+.hot_topic a:hover{
     text-decoration: underline;
+}
+
+.banner_sub_content {
+    display: none;
+}
+
+.loader_container {
+    height: 1000px;
+    width: 100%;
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid rgb(165, 255, 29);; /* Blue */
+    border-radius: 50%;
+    width: 400px;
+    height: 400px;
+    animation: spin 2s linear infinite;
+    margin: 200px auto;
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 
@@ -282,8 +317,7 @@ hr {
 }
 
 
-
-@media(min-width: 750px){
+@media(min-width: 700px){
     .current_news_head{
         grid-template-columns: repeat(3, 1fr);
     }
@@ -291,7 +325,6 @@ hr {
 
 @media(min-width: 700px){
     .banner_sub_content{
-        display: grid;
         grid-template-columns: repeat(2, 1fr);
         height: 1615px;
     }
