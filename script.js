@@ -70,8 +70,11 @@ $.ajax(settings).done(function (response) {
         img.setAttribute("src", imgUrl);
         new_row.appendChild(img);
         
-        var content = document.createElement('div');
-        content.setAttribute('class', 'hot_topic_content');
+        var content_top = document.createElement('div');
+        content_top.setAttribute('class', 'hot_topic_content_top');
+
+        var content_bot = document.createElement('div');
+        content_bot.setAttribute('class', 'hot_topic_content_bot');
     
         var h2 = document.createElement('h2');
         var h3 = document.createElement('h3');
@@ -98,11 +101,12 @@ $.ajax(settings).done(function (response) {
         p.innerHTML = description
         readMoreButton.innerHTML = "Read More";
     
-        content.appendChild(h2);
-        content.appendChild(h3);
-        content.appendChild(p);
+        content_top.appendChild(h2);
+        content_bot.appendChild(h3);
+        content_bot.appendChild(p);
         
-        new_row.appendChild(content);
+        new_row.appendChild(content_top);
+        new_row.appendChild(content_bot);
         new_row.appendChild(readMoreButton);
         banner_sub.appendChild(new_row);
     })
