@@ -1,6 +1,3 @@
-
-
-
 const ham_button = document.querySelector('.ham_button');
 const times_button = document.querySelector('.times_button');
 
@@ -23,94 +20,154 @@ times_button.addEventListener('click', function (){
 })
 
 
-var settings = {
-	"async": true,
-	"crossDomain": true,
-	"url": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?q=taylor%20swift&pageNumber=1&pageSize=10&autoCorrect=true&withThumbnails=true&fromPublishedDate=null&toPublishedDate=null",
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "eedc981b57msh96e2bb005cd2468p1bfa18jsnaf705a644510",
-		"x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com"
-	}
-};
-
-
-
-var maxLenForHeading = 90;
-var maxLenForAbout = 130;
-
-$.ajax(settings).done(function (response) {
-	var value = response.value;
-
-    console.log(response)
-
-    console.log($(window).width())
-
-    if($(window).width() > 700){
-        document.querySelector(".banner_sub_content").style.display="grid";
-    }else{
-        document.querySelector(".banner_sub_content").style.display="block";
+function makeSearchStringCorrectForm(searchText){
+    searchText = searchText.split(" ");
+    var result = "";
+    for (i in searchText){
+        result = result + searchText[i] + "%20";
     }
-    document.querySelector(".loader_container").style.display="none";
+    result = result.substr(0, result.length-3);
 
-    value.forEach(function (elem){
+    return result;
+}
 
-        var title = elem.title
-        var description = elem.description;
-        var datePublished = elem.datePublished;
-        var imgUrl = elem.image.url;
-        var url = elem.url;
+function getNews(searchText){
 
-        const banner_sub = document.querySelector(".banner_sub_content");
+    searchText = makeSearchStringCorrectForm(searchText);
+
+    var banner_sub = document.querySelector(".banner_sub_content");
+    banner_sub.innerHTML = "";
+
+    console.log(searchText);
+
+    var url = "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?q="
+    url = url + searchText;
+    url = url + "&pageNumber=1&pageSize=24&autoCorrect=true&withThumbnails=true&fromPublishedDate=null&toPublishedDate=null";
     
-        var new_row = document.createElement('div');
-        new_row.setAttribute("class", "hot_topic");
-    
-        var img = document.createElement('img');
-        img.setAttribute("src", imgUrl);
-        new_row.appendChild(img);
-        
-        var content_top = document.createElement('div');
-        content_top.setAttribute('class', 'hot_topic_content_top');
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": url,
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "eedc981b57msh96e2bb005cd2468p1bfa18jsnaf705a644510",
+            "x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com"
+        }
+    };
 
-        var content_bot = document.createElement('div');
-        content_bot.setAttribute('class', 'hot_topic_content_bot');
-    
-        var h2 = document.createElement('h2');
-        var h3 = document.createElement('h3');
-        var p = document.createElement('p');
+    console.log(url);
 
-        var readMoreButton = document.createElement('a');
-    
-        readMoreButton.setAttribute('href', url);
+    var maxLenForHeading = 60;
+    var maxLenForAbout = 450;
 
-        if(title.length > maxLenForHeading){
-            title = title.substr(0, maxLenForHeading) + "..."
+    document.querySelector(".banner_sub_content").style.display="none";
+    document.querySelector(".banner").style.background = "rgb(255, 255, 255)";
+    document.querySelector(".loader_container").style.display="block";
+
+    $.ajax(settings).done(function (response) {
+        var value = response.value;
+
+        console.log(response)
+
+        console.log($(window).width())
+
+        if($(window).width() > 700){
+            document.querySelector(".banner_sub_content").style.display="grid";
+        }else{
+            document.querySelector(".banner_sub_content").style.display="block";
         }
 
-        if(description.length > maxLenForAbout){
-            description = description.substr(0, maxLenForAbout) + "..."
-        }
+        document.querySelector(".banner").style.background = "rgba(226, 226, 226, 0.2)";
+        document.querySelector(".loader_container").style.display="none";
 
-        datePublished = datePublished.split("T");
-        datePublishedTime = datePublished[1].split(":");
-        datePublished = datePublished[0] + " " + datePublishedTime[0] + ":" + datePublishedTime[1];
+        value.forEach(function (elem){
+
+            var title = elem.title
+            var description = elem.description;
+            var datePublished = elem.datePublished;
+            var imgUrl = elem.image.url;
+            var url = elem.url;
+
+            var banner_sub = document.querySelector(".banner_sub_content");
         
-        h2.innerHTML = title
-        h3.innerHTML = datePublished
-        p.innerHTML = description
-        readMoreButton.innerHTML = "Read More";
-    
-        content_top.appendChild(h2);
-        content_bot.appendChild(h3);
-        content_bot.appendChild(p);
+            var new_row = document.createElement('div');
+            new_row.setAttribute("class", "hot_topic");
         
-        new_row.appendChild(content_top);
-        new_row.appendChild(content_bot);
-        new_row.appendChild(readMoreButton);
-        banner_sub.appendChild(new_row);
+            var img = document.createElement('img');
+            img.setAttribute("src", imgUrl);
+            new_row.appendChild(img);
+            
+            var content_top = document.createElement('div');
+            content_top.setAttribute('class', 'hot_topic_content_top');
+
+            var content_bot = document.createElement('div');
+            content_bot.setAttribute('class', 'hot_topic_content_bot');
+        
+            var h2 = document.createElement('h2');
+            var h3 = document.createElement('h3');
+            var p = document.createElement('p');
+
+            var readMoreButton = document.createElement('a');
+        
+            readMoreButton.setAttribute('href', url);
+
+            if(title.length > maxLenForHeading){
+                title_splited = title.split(" ");
+                title = "";
+                for(i in title_splited){
+                    var new_str = title_splited[i];
+                    if (title.length + new_str.length < maxLenForHeading){
+                        title = title + " " + new_str;
+                    }else{
+                        break;
+                    }
+                }
+                title = title + " ..."
+            }
+
+            if(description.length > maxLenForAbout){
+                description_splited = description.split(" ");
+                description = "";
+                for(i in description_splited){
+                    var new_str = description_splited[i];
+                    if (description.length + new_str.length < maxLenForAbout){
+                        description = description + " " +new_str;
+                    }else{
+                        break;
+                    }
+                }
+                description = description + " ..."
+            }
+
+            datePublished = datePublished.split("T");
+            datePublishedTime = datePublished[1].split(":");
+            datePublished = datePublished[0] + " " + datePublishedTime[0] + ":" + datePublishedTime[1];
+            
+            h2.innerHTML = title
+            h3.innerHTML = datePublished
+            p.innerHTML = description
+            readMoreButton.innerHTML = "Read More";
+        
+            content_top.appendChild(h2);
+            content_bot.appendChild(h3);
+            content_bot.appendChild(p);
+            
+            new_row.appendChild(content_top);
+            new_row.appendChild(content_bot);
+            new_row.appendChild(readMoreButton);
+            banner_sub.appendChild(new_row);
+        })
+
+
+    });
+}
+
+var categoryButtons = document.querySelectorAll('.news_topic_container h3');
+
+categoryButtons.forEach(function (item) {
+    console.log(item);
+    item.addEventListener('click', function (){
+        getNews(item.innerHTML);
     })
-
-
-});
+})
 
