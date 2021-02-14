@@ -10,11 +10,47 @@ font-family: 'Raleway', sans-serif;
     margin: 0px;
 }
 
+/* green template */
 
 :root {
-    --heading:
-    'Montserrat', sans-serif;
+    --heading: 'Montserrat', sans-serif;
+    --color-back: rgba(226, 226, 226, 0.2);
+    --color-main-light: rgb(136, 255, 132);
+    --color-main-light-transparent: rgba(136, 255, 132, 0.75);
+    --color-main: rgb(139, 211, 137);
 }
+
+
+/*  pink template */
+
+/* :root {
+    --heading: 'Montserrat', sans-serif;
+    --color-back: rgba(226, 226, 226, 0.2);
+    --color-main-light: rgb(216,200,203);
+    --color-main-light-transparent: rgba(216,200,203 ,0.75);
+    --color-main: rgb(150,168,142);
+} */
+
+/*  green-blue template */
+
+/* :root {
+    --heading: 'Montserrat', sans-serif;
+    --color-back: rgba(226, 226, 226, 0.2);
+    --color-main-light: rgb(74,175,163);
+    --color-main-light-transparent: rgba(74,175,163,0.75);
+    --color-main: rgb(46, 153, 141);
+} */
+
+
+/* blue template */
+
+/* :root {
+    --heading: 'Montserrat', sans-serif;
+    --color-back: rgba(226, 226, 226, 0.2);
+    --color-main-light: rgb(141, 168, 241);
+    --color-main-light-transparent: rgba(141, 168, 241, 0.75);
+    --color-main: rgb(68, 109, 221);
+} */
 
 body {
     font-family: 
@@ -139,7 +175,7 @@ hr {
 }
 
 #searchText{
-    color: rgb(219, 255, 166) !important;
+    color: var(--color-main-light) !important;
 }
 
 
@@ -155,7 +191,7 @@ hr {
 
 #searchDiv i{
     margin: 0 15px;
-    color: rgb(219, 255, 166);
+    color: var(--color-main-light);
     font-size: 2rem;
 }
 
@@ -245,7 +281,7 @@ hr {
 
 
 .categoryButton{
-    color: rgb(165, 255, 29);
+    color: var(--color-main);
     font-size: 2rem;
 }
 
@@ -260,7 +296,7 @@ hr {
 
 .banner_main_content hr{
     margin: 20px auto;
-    background: rgb(165, 255, 29);
+    background: var(--color-main);
     height: 1px;
     border: none;
 }
@@ -274,28 +310,29 @@ hr {
 
 .news_topic_container i{
     width: 50px;
-    margin: 10px;
+    margin: auto;
     height: 50px;
-    font-size: 1.7rem;
-    padding:10px;
-
-    background-color: rgb(219, 255, 166);
-    border: 1px solid rgb(219, 255, 166);
+    font-size: 30px;
+    padding: 10px 0;
+    text-align: center;
+    background-color: var(--color-main-light);
+    border: 1px solid var(--color-main-light);
     border-radius: 20%;
 }
+
 
 .news_topic_container div{
     width: 10px;
     margin: auto;
     height: 10px;
-    /* background: rgb(219, 255, 166); */
+    /* background: var(--color-main-light); */
     border-radius: 50%;
 }
 
 .news_topic_container h3{
     padding: 10px;
     border-radius: 20px;
-    /* background-color: rgb(219, 255, 166); */
+    /* background-color: var(--color-main-light); */
     margin: 10px auto;
     width: 200px;
     height: auto;
@@ -308,13 +345,13 @@ hr {
 }
 
 .news_topic_container h3:hover{
-    background-color: rgb(165, 255, 29);
+    background-color: var(--color-main);
     transition: all 0.5s ease-in-out;
     cursor: pointer;
 }
 
 .news_topic_container:hover div{
-    background: rgb(165, 255, 29) !important;
+    background: var(--color-main) !important;
 }
 
 
@@ -328,11 +365,11 @@ hr {
 
 
 .hot_topic:hover img{
-    border: 2px solid rgb(219, 255, 166);
+    border: 2px solid var(--color-main-light);
 }
 
 .hot_topic:hover div{
-    border: 2px solid rgb(219, 255, 166);
+    border: 2px solid var(--color-main-light);
     background: rgba(24,24,24,0.5);
 }
 
@@ -352,14 +389,14 @@ hr {
     width: 100%;
     object-fit: cover;
     border-radius: 20px;
-    /* border: 2px solid rgb(219, 255, 166); */
+    /* border: 2px solid var(--color-main-light); */
 }
 
 .hot_topic_content_top{
     position: absolute;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    /* border: 2px solid rgb(219, 255, 166); */
+    /* border: 2px solid var(--color-main-light); */
     top: 12px;
     right: 0;
     left: 0;
@@ -411,13 +448,13 @@ hr {
     display: none;
     padding: 12px 10px;
     font-size: 15px;
-    text-shadow: 0 0 2px rgb(255, 255, 255);
+    text-shadow: 0 0 2px white;
 }
 
 .hot_topic a{
     display: none;
     position: absolute;
-    background: rgba(219, 255, 166, 0.8);
+    background: var(--color-main-light-transparent);
     bottom: 0;
     right: 0;
     border: none;
@@ -448,7 +485,7 @@ hr {
 
 .loader {
     border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid rgb(165, 255, 29);; /* Blue */
+    border-top: 16px solid var(--color-main);; /* Blue */
     border-radius: 50%;
     width: 50%;
     animation: spin 2s linear infinite;
@@ -473,7 +510,7 @@ hr {
     padding: 10px 30px;
     text-align: center;
     color: white;
-    color: rgb(219, 255, 166);
+    color: var(--color-main-light);
 
 }
 
@@ -490,7 +527,7 @@ hr {
 }
 
 #footer_contact a{
-    color: rgb(219, 255, 166);
+    color: var(--color-main-light);
     font-size: 1.4rem;
     width: 30px;
     margin: auto 0;
@@ -636,7 +673,7 @@ hr {
     }
 
     #social_icons .fab{
-        color: rgb(219, 255, 166);
+        color: var(--color-main-light);
         font-size: 2rem;
     }
 

@@ -113,7 +113,7 @@ function getNews(searchText){
     
     // console.log("2");
     document.querySelector(".banner_sub_content").style.display="none";
-    document.querySelector(".banner").style.background = "rgb(255, 255, 255)";
+    document.querySelector(".banner").style.background = "white";
     // console.log("3");
 
     document.querySelector(".loader_container").style.display="block";
@@ -145,7 +145,7 @@ function getNews(searchText){
             document.querySelector(".banner_sub_content").style.display="block";
         }
 
-        document.querySelector(".banner").style.background = "rgba(226, 226, 226, 0.2)";
+        document.querySelector(".banner").style.background = getComputedStyle(document.documentElement).getPropertyValue('--color-back');
         document.querySelector(".loader_container").style.display="none";
 
         value.forEach(function (elem){
@@ -253,7 +253,7 @@ categoryButtons.forEach(function (item) {
     textChild.addEventListener('click', function (){
         getNews(textChild.innerHTML);
         selectedCategory = circleChild;
-        selectedCategory.style.background = "rgb(219, 255, 166)";
+        selectedCategory.style.background = getComputedStyle(document.documentElement).getPropertyValue('--color-main-light');
     })
 })
 
@@ -381,4 +381,4 @@ makeBannerRightSize();
 makeCategoriesRightSize();
 
 
-getNews("News");
+getNews("World");
