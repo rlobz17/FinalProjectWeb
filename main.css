@@ -372,6 +372,7 @@ hr {
 
 .banner_sub_content {
     display: none;
+    margin: 15px;
 }
 
 .loader_container {
@@ -505,6 +506,7 @@ hr {
 
 @media(min-width: 700px){
     .banner_sub_content{
+        display: grid !important;
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -600,17 +602,16 @@ hr {
     }
 
     .current_news_head{
-        margin: 0;
-        padding: 5px;
-        display: block !important;
-        /* flex-direction: column;
-        height: 100%;
-        overflow: auto; */
+        margin: auto;
+        padding: 10px;
+        display: flex !important;
+        flex-direction: column;
     }
 
     .news_topic_container{
-        height: 54px;
-        /* flex:1; */
+        flex: 1;
+        height: auto;
+        margin: auto;
     }
 
     .news_topic_container i{ 

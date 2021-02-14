@@ -66,6 +66,7 @@ function getNews(searchText){
 
     loaded = false;
     makeBannerRightSize();
+    window.scrollTo(document.body.scrollHeight, 0);
 
     searchText = makeSearchStringCorrectForm(searchText);
 
@@ -139,7 +140,7 @@ function getNews(searchText){
             var datePublished = elem.datePublished;
             var imgUrl = elem.image.url;
             var url = elem.url;
-
+            
             var banner_sub = document.querySelector(".banner_sub_content");
         
             var new_row = document.createElement('div');
@@ -147,6 +148,7 @@ function getNews(searchText){
         
             var img = document.createElement('img');
             img.setAttribute("src", imgUrl);
+            img.setAttribute("onerror", "this.onerror=null; this.src='https://github.com/rlobz17/FinalProjectWeb/blob/main/default_picture.jpg'");
             new_row.appendChild(img);
             
             var content_top = document.createElement('div');
@@ -287,10 +289,21 @@ function makeBannerRightSize(){
     }
 }
 
-
+function makeCategoriesRightSize(){
+    if($(window).width() > 1100){
+        var header_height = $('#header').height();
+        console.log("i am here 1");
+        document.querySelector('.current_news_head').style.height = ($(window).height() - header_height).toString() + "px";
+    }else{
+        console.log("i am here 2");
+        document.querySelector('.current_news_head').style.height = "auto";
+    }
+}
 
 $(window).resize(function() {
     makeBannerRightSize();
+    makeCategoriesRightSize();
 })
 
 makeBannerRightSize();
+makeCategoriesRightSize();
