@@ -155,6 +155,7 @@ function getNews(searchText, page_index = 1){
 
     // console.log(searchText);
 
+
     var url = "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?q="
     url = url + searchText;
     url = url + "&pageNumber=" + page_index;
@@ -166,7 +167,7 @@ function getNews(searchText, page_index = 1){
         "url": url,
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "eedc981b57msh96e2bb005cd2468p1bfa18jsnaf705a644510",
+            "x-rapidapi-key": "d56c18a23bmsh6adcd6ffe0bd2bfp10e388jsnaa6e39fce61a",
             "x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com"
         }
     };
