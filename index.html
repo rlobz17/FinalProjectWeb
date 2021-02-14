@@ -86,9 +86,9 @@
             <div class="banner_main_content">
                 <div class= "banner_about">
                     <h2>GET WORLDS'S LATEST NEWS</h2>
-                    <h3>World's Leading News Portal Made Live and Free for everyone</h3>
-                    <button>
-                        <a href="#">Know More About rlobz17</a>
+                    <h3>World's Leading News Made Live and Free for everyone</h3>
+                    <button id="moreAboutButton">
+                        <a>Know More About Project</a>
                     </button>
                 </div>
 
@@ -96,7 +96,26 @@
                 
                 <div class= "current_news_head_container">
 
-                    <h2>Categories:</h2>
+                    <div class ="category_container">
+                        <h2>Categories</h2>
+
+                        <div id="categoriesExpandbutton" class="categoryButton">
+                            <span>
+                                <i class="fas fa-arrow-down"></i>
+                            </span>
+                        </div>
+    
+                        <div id="categoriesShrinkbutton" class="categoryButton">
+                            <span>
+                                <i class="fas fa-arrow-up"></i>
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div id="breakAfterCategory">
+                        <p></p>
+                    </div>
                     
                     <div class= "current_news_head">
                         <div class= "news_topic_container">
@@ -191,7 +210,7 @@
         
         <footer id="footer">
             <h2>RLOBZ17 NEWS</h2>
-            <p>ეს საიტი გაკეთებულია Free University of Tbilisi-ის მაქსის სკოლის სტუდენტი: რევაზ ლობჟანიძეს მიერ.
+            <p>ეს საიტი გაკეთებულია Free University of Tbilisi-ის მაქსის სკოლის სტუდენტი: რევაზ ლობჟანიძე-ს მიერ.
                 ამ პროექტში გამოყენებული ყველა უცხო წყარო არის სრულიად უფასო და ყველასთვის ხელმისაწვდომი.
                 ვებსაიტის მიზანია, რომ მომხმარებელმა სწრაფად და კომფორტულად წაიკითხოს სიახლეები ნებისმიერი თემის შესახებ.
                 სამწუხაროდ, რადგან ამ პროექტში უცხოური(ამერიკული) api არის გამოყენებული, სიახლეების ჩატვირთვის დრო
@@ -204,6 +223,8 @@
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
+
+            <br>
 
         </footer>
 
