@@ -15,6 +15,7 @@ font-family: 'Raleway', sans-serif;
 :root {
     --heading: 'Montserrat', sans-serif;
     --color-back: rgba(226, 226, 226, 0.2);
+    --color-blank: rgb(143, 141, 141);
     --color-main-light: rgb(136, 255, 132);
     --color-main-light-transparent: rgba(136, 255, 132, 0.75);
     --color-main: rgb(139, 211, 137);
@@ -26,6 +27,7 @@ font-family: 'Raleway', sans-serif;
 /* :root {
     --heading: 'Montserrat', sans-serif;
     --color-back: rgba(226, 226, 226, 0.2);
+    --color-blank: rgb(143, 141, 141);
     --color-main-light: rgb(216,200,203);
     --color-main-light-transparent: rgba(216,200,203 ,0.75);
     --color-main: rgb(150,168,142);
@@ -36,6 +38,7 @@ font-family: 'Raleway', sans-serif;
 /* :root {
     --heading: 'Montserrat', sans-serif;
     --color-back: rgba(226, 226, 226, 0.2);
+    --color-blank: rgb(143, 141, 141);
     --color-main-light: rgb(74,175,163);
     --color-main-light-transparent: rgba(74,175,163,0.75);
     --color-main: rgb(46, 153, 141);
@@ -47,6 +50,7 @@ font-family: 'Raleway', sans-serif;
 /* :root {
     --heading: 'Montserrat', sans-serif;
     --color-back: rgba(226, 226, 226, 0.2);
+    --color-blank: rgb(143, 141, 141);
     --color-main-light: rgb(141, 168, 241);
     --color-main-light-transparent: rgba(141, 168, 241, 0.75);
     --color-main: rgb(68, 109, 221);
@@ -495,6 +499,59 @@ hr {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+#main_container{
+    display: flex;
+    flex-direction: column;
+}
+
+#blank_search{
+    margin: 40px auto;
+}
+
+#page_index_container{
+    width: 100%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.page_index{
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+}
+
+.page_index i{
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 20px;
+    color: var(--color-main-light);
+}
+
+.page_index i:hover{
+    cursor: pointer;
+}
+
+.page_index_disabled i:hover{
+    cursor: initial !important;
+}
+
+#current_page{
+    font-size: 20px;
+    color: var(--color-main);
+    text-align: center;
+}
+
+/* #current_page:hover{
+    cursor: pointer;
+} */
+
+#current_page h2{
+    border: 3px solid var(--color-main-light);
+    border-radius: 50%;
+    margin: auto 0;
 }
 
 

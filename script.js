@@ -49,6 +49,63 @@ categoriesShrinkbutton.addEventListener('click', function (){
     breakAfterCategory.style.display = "none";
 });
 
+
+var pageIndiciesContainer = document.getElementById('page_index_container');
+var prevPageIcon = document.getElementById('prev_page');
+var currentPageContainer= document.getElementById('current_page');
+var nextPageIcon = document.getElementById('next_page');
+var mainContainer = document.getElementById('main_container');
+
+prevPageIcon.addEventListener('click', function(){
+    if(current_page_index > 1){
+        current_page_index = current_page_index - 1;
+        getNews(current_page_searchText, current_page_index);
+    }
+})
+
+nextPageIcon.addEventListener('click', function(){
+    if(isMorePage){
+        current_page_index = current_page_index + 1;
+        getNews(current_page_searchText, current_page_index);
+    }
+})
+
+var blankSearch = document.getElementById('blank_search');
+
+function correctPageIndixies(isBlank = false){
+    if(isBlank){
+        blankSearch.style.display = 'block';
+        mainContainer.style.width = "100%";
+        console.log(currentPageContainer);
+        currentPageContainer.style.color = getComputedStyle(document.documentElement).getPropertyValue('--color-blank');
+        currentPageContainer.children[0].style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--color-blank');
+    }else{
+        mainContainer.style.width = "auto";
+        currentPageContainer.style.color = getComputedStyle(document.documentElement).getPropertyValue('--color-main-light');
+        currentPageContainer.children[0].style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--color-main-light');
+    }
+
+    if(current_page_index === 1){
+        prevPageIcon.children[0].style.color = getComputedStyle(document.documentElement).getPropertyValue('--color-blank');
+        prevPageIcon.classList.add("page_index_disabled");
+    }else{
+        prevPageIcon.children[0].style.color = getComputedStyle(document.documentElement).getPropertyValue('--color-main-light');
+        prevPageIcon.classList.remove("page_index_disabled");
+    }
+
+    if(isMorePage){
+        nextPageIcon.children[0].style.color = getComputedStyle(document.documentElement).getPropertyValue('--color-main-light');
+        nextPageIcon.classList.remove("page_index_disabled");
+    }else{
+        nextPageIcon.classList.add("page_index_disabled");
+        nextPageIcon.children[0].style.color = getComputedStyle(document.documentElement).getPropertyValue('--color-blank');
+    }
+
+    currentPageContainer.children[0].innerHTML = current_page_index;
+    pageIndiciesContainer.style.display = "flex";
+}
+
+
 // console.log($(window).height());
 // console.log(document.querySelector('.banner').style.height);
 
@@ -66,7 +123,11 @@ function makeSearchStringCorrectForm(searchText){
 var loaded = false;
 var selectedCategory = null;
 
-function getNews(searchText){
+var current_page_index = 1
+var current_page_searchText = "World"
+var isMorePage = true;
+
+function getNews(searchText, page_index = 1){
 
     loaded = false;
 
@@ -76,8 +137,10 @@ function getNews(searchText){
         times_button.style.display = "none";
         ham_button.style.display = "block";
     }
-
     removeCircleOnCategory();
+    pageIndiciesContainer.style.display = "none";
+    blankSearch.style.display = 'none';
+    mainContainer.style.width = "auto";
 
     makeBannerRightSize();
     window.scrollTo(document.body.scrollHeight, 0);
@@ -94,7 +157,8 @@ function getNews(searchText){
 
     var url = "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?q="
     url = url + searchText;
-    url = url + "&pageNumber=1&pageSize=24&autoCorrect=true&withThumbnails=true&fromPublishedDate=null&toPublishedDate=null";
+    url = url + "&pageNumber=" + page_index;
+    url = url + "1&pageSize=24&autoCorrect=true&withThumbnails=true&fromPublishedDate=2015-05-16T05%3A50%3A06&toPublishedDate=null";
     
     var settings = {
         "async": true,
@@ -148,6 +212,7 @@ function getNews(searchText){
         document.querySelector(".banner").style.background = getComputedStyle(document.documentElement).getPropertyValue('--color-back');
         document.querySelector(".loader_container").style.display="none";
 
+        console.log(url);
         value.forEach(function (elem){
 
             var title = elem.title
@@ -233,6 +298,19 @@ function getNews(searchText){
         makeBannerRightSize();
         // console.log("8");
 
+        current_page_index = page_index;
+        current_page_searchText = searchText;
+        if(value.length == 24){
+            isMorePage = true;
+        }else{
+            isMorePage = false;
+        }
+
+        if(value.length == 0){
+            correctPageIndixies(true);
+        }else{
+            correctPageIndixies();
+        }
     });
 }
 
