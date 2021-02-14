@@ -19,6 +19,10 @@ times_button.addEventListener('click', function (){
     }
 })
 
+// var header_height = $('#header').height();
+// document.querySelector('.banner').style.height = ($(window).height() -header_height).toString() + "px";
+// console.log($(window).height());
+// console.log(document.querySelector('.banner').style.height);
 
 function makeSearchStringCorrectForm(searchText){
     searchText = searchText.split(" ");
@@ -170,4 +174,40 @@ categoryButtons.forEach(function (item) {
         getNews(item.innerHTML);
     })
 })
+
+
+
+function checkOffset() {
+    if($('.current_news_head_container').offset().top
+        + $('.current_news_head_container').height() 
+        >= $('#footer').offset().top - 10){
+
+        $('.banner_main_content').css({
+            'position': 'relative'
+        });
+
+        $('.current_news_head_container').css({
+            'position': 'absolute',
+            'bottom': 0,
+            'top': 'auto'
+        });
+    }
+    if($(document).scrollTop() + window.innerHeight < $('#footer').offset().top){
+        $('.banner_main_content').css({
+            'position': 'initial'
+        });
+        $('.current_news_head_container').css({
+            'position': 'fixed',
+            'bottom': 'auto',
+            'top': 100
+        });
+    }
+}
+
+
+$(document).scroll(function() {
+    if($(document).width() > 1100){
+        checkOffset();
+    }
+});
 

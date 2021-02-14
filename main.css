@@ -42,6 +42,11 @@ hr {
 
 /* navigation */
 
+#header {
+    width:  100%;
+    height: 100px;
+}
+
 #navigation_container{
     position: fixed;
     top: 0;
@@ -118,7 +123,6 @@ hr {
     /* align-items: center; */
     /* justify-content: space-evenly; */
     padding: 0;
-    margin-top: 100px;
     /* background-color: rgba(226, 226, 226, 0.2); */
 }
 
@@ -378,13 +382,54 @@ hr {
     animation: spin 2s linear infinite;
     margin: 200px auto;
 }
-  
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
+/* footer */
 
+#footer {
+    width : 100%;
+    background-color: black;
+}
+
+#footer h2{
+    padding: 10px 30px;
+    text-align: center;
+    color: white;
+    color: rgb(219, 255, 166);
+
+}
+
+#footer p{
+    padding: 5px 30px;
+    text-align: center;
+    color: white;
+}
+
+#footer_contact{
+    justify-content: center;
+    display: flex;
+    margin: 0 10px;
+}
+
+#footer_contact p{
+    /* width: 80%; */
+    
+}
+
+#footer_contact a{
+    color: rgb(219, 255, 166);
+    font-size: 1.4rem;
+    width: 30px;
+    margin: auto 0;
+}
+  
+
+
+/* relative */
 
 @media(max-width: 400px){
     .news_topic_container{
@@ -394,23 +439,23 @@ hr {
     .news_topic_container h3{
         width: 200px ! important;
     }
+
 }
 
 
 
-@media(max-width: 700px){
+@media(max-width: 630px){
     .banner_about{
         height: auto;
     }
-
+    
     .news_topic_container{
         width: 70%;
     }
-
+    
     .news_topic_container h3{
         width: 70%;
     }
-
 }
 
 @media(min-width: 630px){
@@ -427,11 +472,11 @@ hr {
     }
 } */
 
-@media(min-width: 700px){
+/* @media(min-width: 700px){
     .banner_sub_content{
         grid-template-columns: repeat(2, 1fr);
     }
-}
+} */
 
 
 @media(min-width: 950px){
@@ -504,10 +549,17 @@ hr {
 }
 
 
+@media(max-width: 1100px){
+    .current_news_head_container{
+        position: initial !important;
+    }
+}
+
+
 @media(min-width: 1100px){
-    /* .banner{
+    .banner{
         display: flex;
-    } */
+    }
 
     .current_news_head{
         margin:0;
@@ -533,7 +585,7 @@ hr {
     }
 
     .banner_main_content{
-        width: 300px;
+        width: 350px;
     }
 
     .banner_main_content hr{
@@ -561,8 +613,12 @@ hr {
     }
 
     .loader_container{
-        margin-left: 350px;
-        width: auto;
+        margin: auto;
+    }
+
+    #footer{
+        min-height: 100px;
+        display: table-row;
     }
 }
 
