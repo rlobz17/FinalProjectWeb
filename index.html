@@ -44,16 +44,23 @@
                     <nav>
                         <ul>
                             <li>
-                                <a href="#"> Home </a>
+                                <a id="homeText" class="navigation_buttons"> Home </a>
                             </li>
                             <li>
-                                <a href="#"> GEORGIA </a>
+                                <a id="georgiaText" class = "navigation_buttons"> GEORGIA </a>
                             </li>
                             <li>
-                                <a href="#"> USA </a>
+                                <a id="usaText" class = "navigation_buttons"> USA </a>
                             </li>
-                            <li>
-                                <a href="#"> Search </a>
+                            <li id="searchTextContainer">
+                                <a id="searchText" class = "navigation_buttons"> Search </a>
+                            </li>
+                            <li id="searchFieldContainer">
+                                <div id="searchDiv">
+                                    <i id="clearIcon" class="fas fa-times"></i>
+                                    <input type="text" name="search" id="searchField">
+                                    <i id="searchIcon" class="fas fa-search"></i>
+                                </div>
                             </li>
                         </ul> 
                     </nav>
@@ -179,7 +186,7 @@
                         </div>
                         <div class= "news_topic_container">
                             <i class="fas fa-gamepad"></i>
-                            <h3>Games</h3>
+                            <h3>Gaming</h3>
                             <div class = "news_topic_circle">
                             </div>
                         </div>
